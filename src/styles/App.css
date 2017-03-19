@@ -1,0 +1,48 @@
+body {
+  font-family: 'Harmattan', sans-serif;
+  margin: 0;
+}
+
+html, body, #app, .container {
+  min-height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+input[type="text"] {
+  margin: 10px 0px;
+  height: 60px;
+  color: #1e1e1e;
+  font: 400 1rem "Harmattan", sans-serif;
+  width: 80%;
+  border: 1px solid #dee0e0;
+  padding: 0 20px;
+  -webkit-transition: border-color 0.2s ease-in-out;
+  -moz-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #dee0e0;
+  outline: none !important;
+}
+
+input[type="submit"] {
+  background-color: #323232;
+  color: white;
+  font: 700 1rem "Cabin",sans-serif;
+  border: none;
+  position: relative;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  padding: 20px 80px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #1e1e1e;
+}
