@@ -28,7 +28,7 @@ class Messages extends React.Component {
 }
 
 Messages.defaultProps = {
-  messages = [];
+  messages: []
 };
 
 export default Messages;

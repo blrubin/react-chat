@@ -17,7 +17,7 @@ class ChatApp extends React.Component {
     this.socket = io(config.api).connect();
 
     this.socket.on('server:message', message => {
-      this.addMessage(message);
+      this.addMessageToList(message);
     });
   }
 
