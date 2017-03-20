@@ -7,14 +7,16 @@ class Message extends React.Component {
 
     return (
       <div className={`message ${fromMe}`}>
-        <div className='time-stamp'>
-          { this.props.timeStamp }
-        </div>
         <div className='username'>
           { this.props.username }
         </div>
-        <div className='message-content'>
-          { this.props.message }
+        <div className='message-body'> 
+          <div className='message-content'>
+            { this.props.message }
+          </div>
+          <div className='time-stamp'>
+            { this.props.timeStamp }
+          </div>
         </div>
       </div>
     );

@@ -1,4 +1,16 @@
-.container {
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.users-container {
+  width: 25%;
+  border-right: 1px solid #ddd;
+  background: #f8f8ff;
+}
+
+.chat-container {
+  width: 75%;
   display: flex;
   flex-direction: column;
 }
@@ -7,28 +19,41 @@
   overflow-y: scroll;
   overflow-x: hidden;
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 40px;
 }
 
 h3 {
-  text-align: center;
-  padding: 20px 0;
+  font-size: 1.3rem;
+  text-align: left;
+  padding: 30px;
   margin: 0;
-  border-bottom: 1px solid #ddd;
-  background-color: #eee;
+  padding-left: 70px;
+  text-transform: uppercase;
+}
+
+.chat-container h3 {
+  padding-left: 40px;
+}
+
+.user-list {
+  list-style: none;
+  padding-left: 70px;
+}
+
+.user-list li {
+  margin: 20px 0;
 }
 
 .chat-input {
   position: relative;
   overflow: hidden;
-  padding: 0 40px;
   flex-shrink: 0;
 }
 
 .chat-input input[type="text"] {
   width: 100%;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin: 0;
+  border-left: none;
 }
 
 .message.from-me .username {
@@ -41,22 +66,51 @@ h3 {
   margin-bottom: 5px;
 }
 
+.message.from-me .message-body {
+
+}
+
+.message.from-me .message-body .time-stamp {
+}
+
 .message.from-me .message-content {
-  background-color: #444;
+  background-color: #e80b6f;
   color: white;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 0;
+  order: 2;
+  box-shadow: 2px 2px 2px rgba(4,4,4,0.2);
+
 }
 
 .message {
   margin-bottom: 20px;
 }
+
+.message .message-body {
+  display: flex;
+  align-items: center;
+}
+
 .message-content {
-  max-width: 80%;
+  max-width: 40%;
   display: inline-block;
-  padding: 20px;
-  background-color: #eee;
-  border: 1px;
-  border-radius: 5px;
-  padding-right: 50px;
+  padding: 5px 25px;
+  background-color: #f8f8ff;
+  border-radius: 50px;
+  border-top-left-radius: 0;
+  font-size: 18px;
+  box-shadow: -1px 2px 2px rgba(4,4,4,0.1);
+}
+
+.time-stamp {
+  margin: 0 10px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.message-content:hover + .time-stamp {
+  opacity: 1;
 }
 
 .username {

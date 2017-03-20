@@ -51,11 +51,16 @@ class ChatApp extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h3>Chat</h3>
-        <Users users={this.state.users} />
-        <Messages messages={this.state.messages} />
-        <ChatInput onSend={this.handleSendMessage} />
+      <div className="main-container">
+        <div className="users-container">
+          <h3> {this.state.users.length} users online </h3>
+          <Users users={this.state.users} />
+        </div>
+        <div className="chat-container">
+          <h3>Chat</h3>
+          <Messages messages={this.state.messages} />
+          <ChatInput onSend={this.handleSendMessage} />
+        </div>
       </div>
     );
   }
