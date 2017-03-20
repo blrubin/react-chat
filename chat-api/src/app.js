@@ -10,6 +10,7 @@ const app = express();
 const server = http.createServer(app);
 
 const socketIo = io(server);
+var onlineUsers = [];
 
 // Allow CORS
 app.use(cors());
@@ -27,6 +28,8 @@ console.log(`Started on port ${config.port}`);
 socketIo.on('connection', socket => {
   const username = socket.handshake.query.username;
   console.log(`${username} connected`);
+  onlineUsers.push(username);
+  socketIo.emit('server:usersupdated', onlineUsers);
 
   socket.on('client:message', data => {
     console.log(`${data.username}: ${data.message}`);
@@ -37,6 +40,11 @@ socketIo.on('connection', socket => {
 
   socket.on('disconnect', () => {
     console.log(`${username} disconnected`);
+
+    var index = onlineUsers.indexOf(username);
+    onlineUsers.splice(index, 1);
+    socketIo.emit('server:usersupdated', onlineUsers);
+
   });
 });
 
