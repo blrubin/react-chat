@@ -21,9 +21,10 @@ class ChatApp extends React.Component {
     });
   }
 
-  handleSendMessage(message) {
+  handleSendMessage(message, timeStamp) {
     const messageObject = {
       username: this.props.username,
+      timeStamp: timeStamp,
       message
     };
     this.socket.emit('client:message', messageObject);

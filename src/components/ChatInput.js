@@ -16,7 +16,13 @@ class ChatInput extends React.Component {
 
   handleSubmitMessage(e) {
     e.preventDefault();
-    this.props.onSend(this.state.chatInput);
+    const currentTime = new Date();
+    var hours = currentTime.getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12 || 12;
+    const minutes = ('0'+currentTime.getMinutes()).slice(-2);
+    const timeStamp = hours + ':' + minutes + ' ' + ampm;
+    this.props.onSend(this.state.chatInput, timeStamp);
     this.setState({ chatInput: '' });
   }
 

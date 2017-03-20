@@ -2,10 +2,14 @@ import React from 'react';
 
 class Message extends React.Component {
   render() {
+
     const fromMe = this.props.fromMe ? 'from-me' : '';
 
     return (
       <div className={`message ${fromMe}`}>
+        <div className='time-stamp'>
+          { this.props.timeStamp }
+        </div>
         <div className='username'>
           { this.props.username }
         </div>
@@ -20,6 +24,7 @@ class Message extends React.Component {
 Message.defaultProps = {
   message: '',
   username: '',
+  timeStamp: '',
   fromMe: false
 };
 
