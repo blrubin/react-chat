@@ -10,8 +10,8 @@ class Message extends React.Component {
         <div className='username'>
           { this.props.username }
         </div>
-        <div className='message-body'> 
-          <div className='message-content'>
+        <div className='message-body'>
+          <div className='message-content' style={{'backgroundColor': this.props.color}}>
             { this.props.message }
           </div>
           <div className='time-stamp'>

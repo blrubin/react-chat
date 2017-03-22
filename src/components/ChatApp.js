@@ -24,12 +24,18 @@ class ChatApp extends React.Component {
     this.socket.on('server:usersupdated', onlineUsers => {
       this.updateUsers(onlineUsers);
     });
+
+    this.socket.on('server:color', color => {
+      this.setState({ color: color });
+      console.log(this.state.color);
+    });
   }
 
   handleSendMessage(message, timeStamp) {
     const messageObject = {
       username: this.props.username,
       timeStamp: timeStamp,
+      color: this.state.color,
       message
     };
     this.socket.emit('client:message', messageObject);
@@ -57,7 +63,7 @@ class ChatApp extends React.Component {
           <Users users={this.state.users} />
         </div>
         <div className="chat-container">
-          <h3>Chat</h3>
+          <h3>Chatting as: {this.props.username}</h3>
           <Messages messages={this.state.messages} />
           <ChatInput onSend={this.handleSendMessage} />
         </div>
