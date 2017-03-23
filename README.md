@@ -13,5 +13,5 @@ I started following [this tutorial](https://www.coderfactoryacademy.edu.au/posts
 
 To start the app:
 
-  npm install
-  npm run dev
+npm install
+npm run dev
